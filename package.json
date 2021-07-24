@@ -1,0 +1,73 @@
+{
+  "name": "zdjyweb",
+  "version": "3.1.9",
+  "description": "默认",
+  "author": "默认",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "electron .",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "e2e": "node test/e2e/runner.js",
+    "test": "npm run unit && npm run e2e",
+    "build": "node build/build.js",
+    "dist": "electron-builder --ia32",
+    "macpack": "cross-env NODE_ENV=production electron-builder -mac"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.13",
+    "area-data": "^5.0.6",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^4.0.6",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "electron": "^5.0.4",
+    "electron-builder": "^20.43.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "build": {
+    "productName": "默认",
+    "asar": true,
+    "copyright": "默认",
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://oss.yydz100.com/app-patch/"
+      }
+    ],
+    "directories": {
+      "output": "release",
+      "app": "./"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "icon": "icon.ico"
+    },
+    "mac": {
+      "type": "distribution",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "artifactName": "默认.exe"
+    }
+  }
+}
